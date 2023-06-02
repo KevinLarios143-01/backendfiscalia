@@ -30,4 +30,5 @@ router.post('/ubicaciones', async (req, res) => {
   }
 });
 
+
 module.exports = router;

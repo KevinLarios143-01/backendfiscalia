@@ -13,6 +13,17 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Ruta GET "/"
+router.get('/ubicaciones', async (req, res) => {
+    try {
+        const query = 'SELECT * FROM Ubicaciones';
+        const results = await executeQuery(query);
+        res.send(results);
+    } catch (error) {
+        res.status(500).send('Error al obtener las fiscalias');
+    }
+});
+
 
 router.get('/fis', async (req, res) => {
     try {
