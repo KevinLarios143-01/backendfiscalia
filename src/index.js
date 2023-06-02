@@ -7,13 +7,17 @@ app.use(express.urlencoded({ extended: false }));
 
 const apiRouter = require('./routes/api');
 const apiRouter2 = require('./routes/ubicaciones');
+const apiRouter3 = require('./routes/fiscalias');
+
 
 
 
 // Ruta base para las API
 app.use('/api', apiRouter);
 
-app.use('/', apiRouter2);
+app.use('/api', apiRouter2);
+
+app.use('/api', apiRouter3);
 
 // Iniciar el servidor
 app.listen(5000, () => {
