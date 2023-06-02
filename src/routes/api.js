@@ -16,7 +16,12 @@ router.get('/', async (req, res) => {
 // Ruta GET "/"
 router.get('/ubicaciones', async (req, res) => {
     try {
-        const query = 'SELECT * FROM Ubicaciones';
+        const query = `SELECT U.ID, U.Direccion, P.Nombre AS Pais, D.Nombre AS Departamento, M.Nombre AS Municipio 
+                        FROM Ubicaciones U 
+                        JOIN Paises P ON U.Pais = P.PaisID 
+                        JOIN Departamentos D ON U.Departamento = D.DepartamentoID 
+                        JOIN Municipios M ON U.Municipio = M.MunicipioID; `;
+
         const results = await executeQuery(query);
         res.send(results);
     } catch (error) {
