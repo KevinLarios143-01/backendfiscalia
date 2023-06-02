@@ -6,18 +6,18 @@ app.use(express.urlencoded({ extended: false }));
 
 
 const apiRouter = require('./routes/api');
-const apiRouter2 = require('./routes/ubicaciones');
-const apiRouter3 = require('./routes/fiscalias');
+const ubicaciones = require('./routes/ubicaciones');
+const fiscalias = require('./routes/fiscalias');
+const telefonos = require('./routes/telefonos');
 
 
 
 
 // Ruta base para las API
 app.use('/api', apiRouter);
-
-app.use('/api', apiRouter2);
-
-app.use('/api', apiRouter3);
+app.use('/api', ubicaciones);
+app.use('/api', fiscalias);
+app.use('/api', telefonos);
 
 // Iniciar el servidor
 app.listen(5000, () => {
