@@ -9,10 +9,11 @@ const executeQuery = require('../Database/db');
   router.post('/telefonos', async (req, res) => {
     try {
       // Obtener los datos enviados en el cuerpo de la solicitud
-      const { fiscaliaID, numeroTelefono} = req.body;
+      const  fiscaliaID = req.body.FiscaliaID; 
+      const numeroTelefono = req.body.NumeroTelefono;
   
       // Ejecutar el procedimiento almacenado
-      const query = `EXEC InsertarTelefonoFiscalia @fiscaliaID='${fiscaliaID}', @numeroTelefono=${numeroTelefono}`;
+      const query = `EXEC InsertarTelefonoFiscalia @fiscaliaID='${fiscaliaID}', @NumeroTelefono='${numeroTelefono}'`;
       
   
       const results = await executeQuery(query);
