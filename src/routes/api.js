@@ -14,6 +14,53 @@ router.get('/', async (req, res) => {
 });
 
 // Ruta GET "/"
+router.get('/paises', async (req, res) => {
+    try {
+        const query = 'SELECT * FROM Paises';
+        const results = await executeQuery(query);
+        res.send(results);
+    } catch (error) {
+        res.status(500).send('Error al obtener los Paises');
+    }
+});
+// Ruta GET "/"
+router.get('/departamentos', async (req, res) => {
+    try {
+        const query = 'SELECT * FROM Departamentos';
+        const results = await executeQuery(query);
+        res.send(results);
+    } catch (error) {
+        res.status(500).send('Error al obtener los Departamentos');
+    }
+});
+
+// Ruta GET "/"
+router.get('/municipios', async (req, res) => {
+    try {
+        const query = 'SELECT * FROM Municipios';
+        const results = await executeQuery(query);
+        res.send(results);
+    } catch (error) {
+        res.status(500).send('Error al obtener los Municipios');
+    }
+});
+
+// Ruta GET "/"
+router.get('/ubicacionesD', async (req, res) => {
+    try {
+        const query = 'SELECT * FROM Ubicaciones';
+        const results = await executeQuery(query);
+        res.send(results);
+    } catch (error) {
+        res.status(500).send('Error al obtener las Ubicaciones');
+    }
+});
+
+
+
+
+
+// Ruta GET "/"
 router.get('/ubicaciones', async (req, res) => {
     try {
         const query = `SELECT U.ID, U.Direccion, P.Nombre AS Pais, D.Nombre AS Departamento, M.Nombre AS Municipio 
